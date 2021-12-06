@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+/* *{margin: 0; padding: 0; box-sizing: border-box;} */
+
+
+.tooltip {
+  position: relative;
+  border-radius: 5px; background-color: black; color: #fff; 
+  /* 위아래 여백은 패딩으로 주는 듯듯 */
+  padding: 10px;
+  max-width: 200px;
+}
+
+.tooltip::after {
+  content: "";
+
+  position: absolute;
+  /* X좌표의 100%는 화살표 솔리드 너비만큼 옮기려고하니까 100%가 됨 */
+  /* transform: translateX(100%) translateY(-50%); */
+  border-width: 10px;
+  border-style: solid;
+  
+}
+
+.tooltip-right::after {
+  /* tooltip의 절반 높이에 넣기 위해 50%*/
+  top: 50%;
+  /* left:100%일 경우 transform: translateX(0) translateY(-50%); */
+  left: 100%;
+  transform: translate(0,-50%);
+  border-color: transparent transparent transparent black;
+
+}
+
+.tooltip-left::after {
+  top: 50%;
+  left: 0;
+  transform: translate(-100%,-50%);
+  border-color: transparent black transparent transparent;
+  
+}
+
+.tooltip-top::after {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%,-100%);
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip-bottom::after {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,0%);
+  border-color: black transparent transparent transparent;
+}
+
+
+.tmp { 
+  width: 0; height: 0;
+  border-width: 50px; border-style: solid; border-color: red yellow blue green;
+}
+.tmp-right {
+  border-color: transparent transparent transparent green;
+}
+.tmp-top {
+  border-color: red transparent transparent transparent;
+}
+.tmp-left {
+  border-color: transparent yellow transparent transparent;
+}
+.tmp-bottom {
+  border-color: transparent transparent blue transparent;
+}
+
+
+/* 혼자한 거 */
+
+#fix { position: fixed; bottom: 100px; right: 30px;}
+.tool { width: 450px; display: flex; justify-content: space-around; align-items: center;}
+
+.box { 
+  width: 100px; height: 100px; background-color: red;
+  border: solid 5px #fff;
+  box-shadow: 0 10px 10px rgb(87, 87, 87);
+  text-align: center;
+  padding: 30px 0 ;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tool-tip {
+  width: 250px; height: 100px; background-color: rgb(41, 41, 41);
+  border-radius: 15px;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #fff;
+}
+
+.tool-tip::after {
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(41, 41, 41);
+  
+}
